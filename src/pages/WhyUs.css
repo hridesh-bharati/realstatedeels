@@ -1,0 +1,87 @@
+/* Color Variables */
+:root {
+  --primary-purple: #5E35AA;
+  --primary-purple-hover: #4b298a;
+  --bg-light: #f8f9fa; /* Clean light background */
+  --card-bg: #ffffff;
+  --text-dark: #1a1a1a;
+  --text-gray: #555555;
+}
+
+/* Background & Utility Classes */
+.bg-light-main {
+  background-color: var(--bg-light);
+}
+
+.text-purple {
+  color: var(--primary-purple) !important;
+}
+
+.max-w-600 {
+  max-width: 600px;
+}
+
+/* Header Elements */
+.badge-purple {
+  color: var(--primary-purple);
+  background-color: rgba(94, 53, 170, 0.08);
+  border: 1px solid rgba(94, 53, 170, 0.2);
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.purple-divider {
+  width: 60px;
+  height: 3px;
+  background-color: var(--primary-purple);
+  border-radius: 2px;
+}
+
+/* Clean Light Card Design */
+.light-card {
+  background: var(--card-bg);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.light-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary-purple);
+  box-shadow: 0 10px 25px rgba(94, 53, 170, 0.12);
+}
+
+.feature-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem;
+  color: var(--text-dark);
+}
+
+.feature-desc {
+  font-size: 0.925rem;
+  line-height: 1.6;
+}
+
+/* Primary Purple Button */
+.btn-purple {
+  background-color: var(--primary-purple);
+  color: #ffffff !important;
+  font-weight: 600;
+  padding: 12px 32px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  border: none;
+  display: inline-block;
+  box-shadow: 0 4px 12px rgba(94, 53, 170, 0.25);
+}
+
+.btn-purple:hover {
+  background-color: var(--primary-purple-hover);
+  box-shadow: 0 6px 18px rgba(94, 53, 170, 0.35);
+  transform: translateY(-2px);
+}
