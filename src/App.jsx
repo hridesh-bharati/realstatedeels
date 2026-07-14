@@ -13,7 +13,6 @@ import WhyUs from './pages/WhyUs';
 import Corridors from './pages/Corridors';
 import Framework from './pages/Framework';
 import Insights from './pages/Insights';
-import corridors from './pages/corridors';
 import Consultation from './pages/Consultation';
 import NotFound from './pages/NotFound';
 
