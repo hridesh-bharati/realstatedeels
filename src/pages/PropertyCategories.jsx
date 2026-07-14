@@ -47,7 +47,15 @@ const PropertyCategories = () => {
       }}
     >
       <div className="container" style={{ maxWidth: '1200px', margin: '0 auto' }}>
-        <div className="row g-4 justify-content-center" style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
+        <div 
+          className="row g-4 justify-content-center" 
+          style={{ 
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))',
+            gap: '20px',
+            justifyContent: 'center'
+          }}
+        >
           {categories.map((item, index) => {
             const IconComponent = item.icon;
             return (
@@ -56,9 +64,9 @@ const PropertyCategories = () => {
                 data-aos="fade-up" 
                 data-aos-delay={index * 80}
                 style={{
-                  flex: '1 1 calc(20% - 20px)',
-                  minWidth: '180px',
-                  maxWidth: '220px'
+                  width: '100%',
+                  maxWidth: '220px',
+                  justifySelf: 'center'
                 }}
               >
                 <div 
@@ -78,7 +86,9 @@ const PropertyCategories = () => {
                     flexDirection: 'column',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    height: '160px'
+                    height: '160px',
+                    position: 'relative',
+                    overflow: 'hidden'
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'translateY(-10px) scale(1.03)';
@@ -89,7 +99,18 @@ const PropertyCategories = () => {
                     e.currentTarget.style.boxShadow = '0 10px 30px -10px rgba(0,0,0,0.15)';
                   }}
                 >
-                  <div style={{ marginBottom: '14px', color: '#FFFFFF', opacity: 0.95 }}>
+                  {/* Glass reflection effect */}
+                  <div style={{
+                    position: 'absolute',
+                    top: '-50%',
+                    left: '-50%',
+                    width: '200%',
+                    height: '200%',
+                    background: 'radial-gradient(circle at 30% 20%, rgba(255,255,255,0.1) 0%, transparent 70%)',
+                    pointerEvents: 'none'
+                  }} />
+                  
+                  <div style={{ marginBottom: '14px', color: '#FFFFFF', opacity: 0.95, position: 'relative', zIndex: 1 }}>
                     <IconComponent size={42} strokeWidth={1.8} />
                   </div>
                   <h3 
@@ -99,7 +120,9 @@ const PropertyCategories = () => {
                       fontWeight: 600, 
                       margin: 0,
                       lineHeight: '1.3',
-                      letterSpacing: '0.3px'
+                      letterSpacing: '0.3px',
+                      position: 'relative',
+                      zIndex: 1
                     }}
                   >
                     {item.title}
@@ -110,6 +133,61 @@ const PropertyCategories = () => {
           })}
         </div>
       </div>
+
+      {/* Mobile Responsive Styles */}
+      <style jsx>{`
+        @media (max-width: 768px) {
+          .container > div {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 15px !important;
+          }
+          
+          .container > div > div {
+            max-width: 100% !important;
+          }
+          
+          .glass-card {
+            height: 130px !important;
+            padding: 20px 12px !important;
+          }
+          
+          .glass-card svg {
+            width: 32px !important;
+            height: 32px !important;
+          }
+          
+          .glass-card h3 {
+            font-size: 0.85rem !important;
+          }
+        }
+
+        @media (max-width: 400px) {
+          .container > div {
+            gap: 10px !important;
+          }
+          
+          .glass-card {
+            height: 110px !important;
+            padding: 15px 10px !important;
+            border-radius: 16px !important;
+          }
+          
+          .glass-card svg {
+            width: 28px !important;
+            height: 28px !important;
+          }
+          
+          .glass-card h3 {
+            font-size: 0.75rem !important;
+          }
+        }
+
+        @media (min-width: 769px) and (max-width: 1200px) {
+          .container > div {
+            grid-template-columns: repeat(3, 1fr) !important;
+          }
+        }
+      `}</style>
     </section>
   );
 };
