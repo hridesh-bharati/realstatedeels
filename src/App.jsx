@@ -13,7 +13,7 @@ import WhyUs from './pages/WhyUs';
 import Corridors from './pages/Corridors';
 import Framework from './pages/Framework';
 import Insights from './pages/Insights';
-import Stories from './pages/Stories';
+import corridors from './pages/corridors';
 import Consultation from './pages/Consultation';
 import NotFound from './pages/NotFound';
 
@@ -31,7 +31,7 @@ function App() {
         <Route path="/foundation" element={<Corridors />} />
         <Route path="/framework" element={<Framework />} />
         <Route path="/insights" element={<Insights />} />
-        <Route path="/stories" element={<Stories />} />
+        <Route path="/corridors" element={<corridors />} />
         <Route path="/consultation" element={<Consultation />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

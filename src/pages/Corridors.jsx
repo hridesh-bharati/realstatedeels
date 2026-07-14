@@ -12,47 +12,81 @@ const Corridors = () => {
   ];
 
   return (
-    <section className="section-padding" style={{ background: '#050505', paddingTop: '120px' }}>
-      <div className="container">
+    <section className="py-5 bg-light min-vh-100">
+      <div className="container py-lg-4">
+        {/* Section Header */}
         <div className="text-center mb-5" data-aos="fade-up">
-          <span className="section-tag">Investment Zones</span>
-          <h2 className="section-title">
-            Jaipur's <span className="text-gold">Growth Corridors</span>
+          <span 
+            className="badge rounded-pill px-3 py-2 mb-3 text-uppercase fw-semibold"
+            style={{ backgroundColor: 'rgba(94, 53, 170, 0.12)', color: '#5E35AA' }}
+          >
+            Investment Zones
+          </span>
+          <h2 className="display-5 fw-bold text-dark mb-3">
+            Jaipur's <span style={{ color: '#5E35AA' }}>Growth Corridors</span>
           </h2>
-          <p className="text-secondary" style={{ maxWidth: '600px', margin: '0 auto', fontSize: '1.1rem' }}>
+          <p className="text-secondary mx-auto fs-5" style={{ maxWidth: '650px' }}>
             Explore the most promising investment zones with future infrastructure, metro connectivity, and high appreciation potential.
           </p>
-          <div className="gold-divider-center"></div>
+          <div className="mx-auto rounded-pill" style={{ width: '60px', height: '4px', backgroundColor: '#5E35AA' }}></div>
         </div>
 
+        {/* Corridors Grid */}
         <div className="row g-4">
           {corridors.map((corridor, i) => (
             <div className="col-lg-4 col-md-6" key={i} data-aos="fade-up" data-aos-delay={i * 100}>
-              <div className="p-4 glass" style={{ height: '100%', transition: 'all 0.4s ease' }}>
-                <div style={{ width: '12px', height: '12px', background: '#D4AF37', borderRadius: '50%', marginBottom: '12px', boxShadow: '0 0 20px rgba(212,175,55,0.3)' }}></div>
-                <h4 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.5rem', fontWeight: 600 }}>{corridor.name}</h4>
-                <span className="d-inline-block text-gold" style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '1px', fontWeight: 600, background: 'rgba(212,175,55,0.1)', padding: '4px 12px', borderRadius: '50px', margin: '8px 0' }}>
-                  {corridor.potential}
-                </span>
-                <p style={{ color: '#d9d9d9', marginBottom: '4px' }}><strong>ROI:</strong> {corridor.roi}</p>
-                <p style={{ color: '#d9d9d9', marginBottom: '4px' }}><strong>Infrastructure:</strong> {corridor.infra}</p>
-                <p style={{ color: '#999', fontSize: '0.9rem', lineHeight: '1.6', marginTop: '8px', marginBottom: 0 }}>
-                  {corridor.desc}
-                </p>
+              <div className="card h-100 border-0 shadow-sm rounded-4 p-4 bg-white d-flex flex-column justify-content-between">
+                <div>
+                  <div className="d-flex justify-content-between align-items-center mb-3">
+                    <div 
+                      className="rounded-circle"
+                      style={{ width: '12px', height: '12px', backgroundColor: '#5E35AA' }}
+                    ></div>
+                    <span 
+                      className="badge px-3 py-2 text-uppercase fw-bold rounded-pill"
+                      style={{ backgroundColor: 'rgba(94, 53, 170, 0.1)', color: '#5E35AA', fontSize: '0.75rem' }}
+                    >
+                      {corridor.potential}
+                    </span>
+                  </div>
+
+                  <h4 className="fw-bold text-dark mb-3">{corridor.name}</h4>
+                  
+                  <div className="p-3 bg-light rounded-3 mb-3 border border-light-subtle">
+                    <p className="text-dark small mb-1">
+                      <strong>Expected ROI:</strong> <span className="fw-bold" style={{ color: '#5E35AA' }}>{corridor.roi}</span>
+                    </p>
+                    <p className="text-dark small mb-0">
+                      <strong>Infrastructure:</strong> {corridor.infra}
+                    </p>
+                  </div>
+
+                  <p className="text-secondary small lh-base mb-0">
+                    {corridor.desc}
+                  </p>
+                </div>
               </div>
             </div>
           ))}
         </div>
 
+        {/* Interactive Map Banner */}
         <div className="text-center mt-5" data-aos="fade-up">
-          <div className="p-4 glass d-inline-block" style={{ border: '1px dashed rgba(212,175,55,0.2)' }}>
-            <h5 style={{ color: '#D4AF37', marginBottom: '8px' }}>🗺️ Interactive Map Coming Soon</h5>
-            <p style={{ color: '#999', marginBottom: 0 }}>Detailed zone analysis with property data and projections</p>
+          <div className="p-4 bg-white rounded-4 shadow-sm d-inline-block border border-dashed" style={{ borderColor: '#5E35AA' }}>
+            <h5 className="fw-bold mb-2" style={{ color: '#5E35AA' }}>🗺️ Interactive Map Coming Soon</h5>
+            <p className="text-secondary small mb-0">Detailed zone analysis with property data and projections</p>
           </div>
         </div>
 
-        <div className="text-center mt-5" data-aos="fade-up">
-          <Link to="/consultation" className="btn-gold">Get Investment Advice for Your Preferred Corridor</Link>
+        {/* CTA Button */}
+        <div className="text-center mt-4" data-aos="fade-up">
+          <Link 
+            to="/consultation" 
+            className="btn text-white rounded-pill px-4 py-3 fw-bold shadow-sm text-uppercase"
+            style={{ backgroundColor: '#5E35AA' }}
+          >
+            Get Investment Advice for Your Preferred Corridor
+          </Link>
         </div>
       </div>
     </section>
